@@ -1,40 +1,5 @@
 Feature: SunNxt Mobile Automation
-@MobileTest @Hometabs 
-Scenario Outline: Tv-01-Verify Home tabs
-Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-#Given user click HomeTabs
-Given user click HomeTab carousals 
-Examples: 
- | TestData     | TestData1            |
- | SunNxt       | SunNxtMobileApplication|
- 
 
- 
-@MobileTest @Login @AndroidTV
-Scenario Outline: TV02-Check Navigations between sections in Menu bar
-Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id  
-
-Examples: 
- | TestData     | TestData1            |
- | SunNxt       | SunNxtMobileApplication|
- 
- 
- @MobileTest @Carousals @AndroidTV
-Scenario Outline: TV06-User should be able to navigate between carousal in each page
-Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-#Given user click Hometab navigate all carosals
-Then  user click Moviestab navigate all carosals
-Then  user click Tvshowstab navigate all carosals  
-Then  user click Livetab navigate all carosals
-Then  user click Musicvideostab navigate all carosals
-Then  user click Comedytab navigate all carosals
-
-Examples: 
- | TestData     | TestData1            |
- | SunNxt       | SunNxtMobileApplication|
- 
  
 @MobileTest @changeContentLanguage 
 Scenario Outline: TCN-19-Verify Change content language and see whether the content for that particular language is displayed or not operation

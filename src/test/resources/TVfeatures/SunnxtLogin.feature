@@ -1,29 +1,6 @@
 Feature: SunNxt Mobile Automation
-@MobileTest @Hometabs @sravan
-Scenario Outline: Tv-01&03&04&05-Verify Home tabs
-Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click HomeTabs
- 
-Examples: 
- | TestData     | TestData1            |
- | SunNxt       | SunNxtMobileApplication|
- 
- 
-@MobileTest @Carousals @AndroidTV @sravan
-Scenario Outline: TV06&07-User should be able to navigate between carousal in each page
-Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Then  user click Moviestab navigate all carosals
-Then  user click Tvshowstab navigate all carosals  
-Then  user click Livetab navigate all carosals
-Then  user click Musicvideostab navigate all carosals
-Then  user click Comedytab navigate all carosals
 
-Examples: 
- | TestData     | TestData1            |
- | SunNxt       | SunNxtMobileApplication|
- 
- 
-@MobileTest @EmailLogin @AndroidTV @sravan
+@EmailLogin 
 Scenario Outline: TV10-User should be able to Sign in with Email ID
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Given user click one content
@@ -34,40 +11,11 @@ Examples:
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
- 
- 
-@MobileTest @MobileLogin @AndroidTV
-Scenario Outline: TV11-User should be able to Sign in with Mobilenumber 
-Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with Mobilenumber 
-
-Examples: 
- | TestData     | TestData1            |
- | SunNxt       | SunNxtMobileApplication| 
- 
- 
- 
-@MobileTest @EmailsecondaryprofleLogin @AndroidTV
-Scenario Outline: TV-12&13&14-User should be able to Sign in with Email ID
-Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with emailid  
-
-
-Examples: 
- | TestData     | TestData1            |
- | SunNxt       | SunNxtMobileApplication| 
- 
-   
- 
-
-@MobileTest @Homecarousals @AndroidTV
+@MobileTest @Homecarousals @ssk
 Scenario Outline: TV21-User should be able to play contents from each carousal in Home Page
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
 Then user playback for all Home carousals
+Then user back to home
 
 Examples: 
  | TestData     | TestData1            |
@@ -76,149 +24,200 @@ Examples:
  
 
  
-@MobileTest @Moviecarousals @AndroidTV
+@MobileTest @Moviecarousals  @ssk
 Scenario Outline: TV22-User should be able to play contents from each carousal in Movies Page
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
+When user selects "Movies" menu 
 Then user playback for all Movie carousals
+Then user back to home
  
 Examples:  
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
-@MobileTest @Tvshowscarousals @AndroidTV
+@MobileTest @Tvshowscarousals   @sravan
 Scenario Outline: TV23-User should be able to play contents from each carousal in TV Shows Page
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
+When user selects "TV Shows" menu 
 Then user playback for all Tvshows carousals
+Then user back to home
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
-@MobileTest @Musicvideoscarousals @AndroidTV
+@MobileTest @Musicvideoscarousals  @sravan
 Scenario Outline: TV24-User should be able to play contents from each carousal in Music Videos Page
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
+When user selects "Music Videos" menu 
 Then user playback for all musicvideos carousals
+Then user back to home
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
-@MobileTest @Comedycarousals @AndroidTV
+@MobileTest @Comedycarousals  @sravan
 Scenario Outline: TV25-User should be able to play contents from each carousal in Comedy Page
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
+When user selects "Comedy" menu
 Then user playback for all Comedy carousals
+Then user back to home
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|  
+  
  
+
  
-@MobileTest @Moviespage @AndroidTV
+
+
+ 
+@MobileTest @Moviespage  @sss
 Scenario Outline: TV26-User select In Movies page - Select View all Movies - Apply filter for genre and observe the results. play any content from the results
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
 Then user Apply filter for genre in movies page
+When user click on "VIEW ALL MOVIES" under section "VIEW ALL MOVIES"
+Then user back to home
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
-@MobileTest @Tvshowspage @AndroidTV
+@MobileTest @Tvshowspage  @sss
 Scenario Outline: TV27-User select In TV shows page - Select View all for Tv shows - Apply filter for Genre and observe the results. play any content from the results 
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
 Then user Apply filter for genre in TVshows page
+When user click on "View All Shows" under section "View All"
+Then user back to home
 
-Examples: 
+Examples:  
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
  
-@MobileTest @Musicvideospage @AndroidTV
+@MobileTest @Musicvideospage @sss
 Scenario Outline: TV28-User select In Music Videos page - Select View all for Music videos  - Apply filter for Musicians and observe the results. play any content from the results
-Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with emailid 
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file 
 Then user Apply filter for genre in MusicVideos page
+When user click on "VIEW ALL MUSIC VIDEOS" under section "VIEW ALL MUSIC VIDEOS"
+Then user back to home
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
  
-@MobileTest @Comedyspage @AndroidTV
+@MobileTest @Comedyspage @sss
 Scenario Outline: TV29-User select In comedy page - Select view all for comedy - Apply filter for comedians and observe the results. Play any content from the results
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with emailid 
 Then user Apply filter for genre in comedypage page
+When user click on "View All" under section "View All"
+Then user back to home
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
-@MobileTest @LiveTVpage @AndroidTV
+@MobileTest @LiveTVpage 
 Scenario Outline: TV30-User select Verify Live TV section and play content from catch up section if available
-Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with emailid 
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file 
+When user selects "Live TV" menu 
 Then user Verify Live TV section
+Then user back to home
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
  
+@MobileTest @Sravan
+Scenario Outline: Selecting a video from TV
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file
+When user click on "Brahmachari (Telugu)" under section "SOUTH LATEST BLOCKBUSTER"
+Then user back to home
+
+Examples:
+| TestData     | TestData1            |
+| SunNxt       | SunNxtMobileApplication| 
+
+@MobileTest @Search 
+Scenario Outline: TV35-search from different sections and play any content from search results 
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file
+When user selects Search icon button 
+Then user back to home
+
+Examples: 
+ | TestData     | TestData1            |
+ | SunNxt       | SunNxtMobileApplication|  
+
  
- 
- 
-@MobileTest @Contentlanguage @AndroidTV
+@MobileTest @Contentlanguage 
 Scenario Outline: TV37&38-User should be able to change content language through settings page
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
+When user selects "Settings" menu 
 Then user change content language
-#Then user observe content language changed or not
+Then user back to home
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
+@MobileTest @Subtitle 
+Scenario Outline: TV41-User should be able to ON/OFF subtitles while playing the conten
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file
+When user selects "Movies" menu 
+Then user play one content
  
  
- @MobileTest @Playbackcontrols @AndroidTV
+Examples: 
+ | TestData     | TestData1            |
+ | SunNxt       | SunNxtMobileApplication|  
+ 
+@MobileTest @Myaccounts 
+Scenario Outline: TV42-User should be able to check "MY Accounts" from settings page
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file
+When user selects "Settings" menu 
+Then user click on Myaccount 
+ 
+Examples: 
+ | TestData     | TestData1            |
+ | SunNxt       | SunNxtMobileApplication|  
+
+ 
+ @MobileTest @Playbackcontrols 
 Scenario Outline: TV50-User should be able to Auto play the contents
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
 Then user verify playback controls 
+Then user back to home
 
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
  
- @MobileTest @fg @AndroidTV
+ @MobileTest  
 Scenario Outline: TV49-User should be able to Auto play the contents
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
-Given user click one content
-Then user Login with email id 
 Then user verify playback controls 
+Then user back to home
 
 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|  
+ 
+@MobileTest @videoquality 
+Scenario Outline: TV54-User should be able to change the content quality through setting option in seek bar
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file
+Then user verify playback controls for videoqyality
+Then user back to home
+
+
+Examples: 
+ | TestData     | TestData1            |
+ | SunNxt       | SunNxtMobileApplication| 
  
  
  

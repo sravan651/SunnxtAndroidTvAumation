@@ -77,7 +77,6 @@ public class NonLoginRunner extends AbstractTestNGCucumberTests {
 			new BizComps().navigateToHomeScreen();
 			mk.delay(2000);
 			ExtReport.getReport().endTest(ExtTest.getTest());
-			//GlobalUtil.extent.endTest(GlobalUtil.logger);
 		} catch (Exception e) {
 			e.printStackTrace();
 			LogUtil.errorLog(getClass(), "Common Settings not properly set may not run the scripts properly");

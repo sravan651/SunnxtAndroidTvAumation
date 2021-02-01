@@ -32,7 +32,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 @CucumberOptions(features = "classpath:features/SunnxtLogin.feature", glue = "com.sunnxt.stepdefs.android", plugin = { "pretty",
 		"html:target/cucumber-html-report", "json:target/cucumber.json",
-		"rerun:target/rerunlogin.txt" }, tags = "@Hometabs")
+		"rerun:target/rerunlogin.txt" }, tags = "@ssk")
 public class LoginRunner extends AbstractTestNGCucumberTests {
 	private static final ThreadLocal<TestNGCucumberRunner> testNGCucumberRunner = new ThreadLocal<>();
 	public static ConfigReader config = new ConfigReader();

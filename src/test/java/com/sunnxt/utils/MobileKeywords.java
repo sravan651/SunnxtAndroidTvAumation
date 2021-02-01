@@ -304,6 +304,16 @@ public class MobileKeywords extends KeywordUtil {
 		LogUtil.infoLog(KeywordUtil.class, KeywordUtil.lastAction);
 		ExtTest.getTest().log(LogStatus.PASS, HTMLReportUtil.passStringGreenColor(logStep));
 	}
+	
+	public void click_New(WebElement ele, String logStep) {
+		WebDriverWait wait = new WebDriverWait(getMDriver(), 20);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+		element.click();
+
+		KeywordUtil.lastAction = "Find Element: " + ele.toString();
+		LogUtil.infoLog(KeywordUtil.class, KeywordUtil.lastAction);
+		ExtTest.getTest().log(LogStatus.PASS, HTMLReportUtil.passStringGreenColor(logStep));
+	}
 
 	public void swipeHorizontal_FindElementClick(int howManySwipes, By locator, String logStep) {
 		Dimension size = getMDriver().manage().window().getSize();
