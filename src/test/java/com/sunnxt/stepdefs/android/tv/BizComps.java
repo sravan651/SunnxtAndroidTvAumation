@@ -17,6 +17,7 @@ public class BizComps extends MobileKeywords {
 
 	public void selectAVideo(String videoTitle, String section) {
 		delay(10000);
+		Back();
 		executeAndroidKeyCodes(AndroidKey.DPAD_RIGHT);
 	
 		for (int i = 0; i < 45; i++) {
@@ -77,6 +78,30 @@ public class BizComps extends MobileKeywords {
 					break;
 				}
 			} catch (NoSuchElementException | TimeoutException e) {
+				executeAndroidKeyCodes(AndroidKey.DPAD_DOWN);
+			}
+		}
+	}
+	
+	
+	public void Homepage(String videoTitle, String section) {
+		delay(10000);
+		//executeAndroidKeyCodes(AndroidKey.DPAD_RIGHT);
+		Back();
+	
+		for (int i = 0; i < 45; i++) {
+			try {
+				if (!getMDriver()
+						.findElement(By.xpath(
+								"(//*[@focused='true']//ancestor::androidx.recyclerview.widget.RecyclerView)[2]"))
+						                .getAttribute("content-desc").equals(section))
+					
+					executeAndroidKeyCodes(AndroidKey.DPAD_DOWN);
+				//delay(10000);
+				else 
+					break;
+			}
+			 catch (NoSuchElementException | TimeoutException e) {
 				executeAndroidKeyCodes(AndroidKey.DPAD_DOWN);
 			}
 		}

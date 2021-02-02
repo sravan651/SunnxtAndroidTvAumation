@@ -31,6 +31,12 @@ public class AndroidTVLocators {
 		public static By Searchicon = By.xpath("//android.widget.ImageView[@content-desc=\"Search Action\"]");
 		public static By searchedit = By.id("com.suntv.sunnxt:id/lb_search_text_editor");
 		//androidx.recyclerview.widget.RecyclerView[@content-desc="Navigation menu"]
+		public static By invlid = By.xpath("//*[@text='Enter valid Email Id/Mobile Number']");   
+		public static By withoutid = By.xpath("//*[@text='Email Id/Mobile Number fields cannot be empty']");     
+		public static By passwordempty = By.xpath("(//*[@text='Password cannot be empty'])");
+		public static By wrongpassword = By.xpath("(//*[@text='Kindly verify your user id or password and try again.'])");
+		
+		
 		
 		
 	}

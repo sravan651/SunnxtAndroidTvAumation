@@ -52,12 +52,12 @@ Examples:
  | SunNxt       | SunNxtMobileApplication| 
  
 
-@MobileTest @Nonsubscriber @ss
+@MobileTest @Nonsubscriber @ssk
 Scenario Outline: TV-15-User should be able to SIgn in from settings page also
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user selects "Settings" menu
 Then user Login with Nonsubscriber emailid 
-Then user back to home
+When user selects "Home" menu 
 
 
 Examples: 
@@ -66,7 +66,7 @@ Examples:
  
  
  
-@MobileTest @internationuser @ss
+@MobileTest @internationuser @ssk
 Scenario Outline: TV44-International user should not be logged in to Indian App
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Given user click one content
@@ -76,6 +76,55 @@ Then user back to home
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|  
+ 
+
+
+ 
+ 
+@MobileTest @loginwith9digits @Apalya
+Scenario Outline: TV55-User login with nine or eleven digits
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file
+Given user click one content
+Then user Login with nine digits and eleven digits
+When user selects "Home" menu 
+
+Examples: 
+ | TestData     | TestData1            |
+ | SunNxt       | SunNxtMobileApplication|
+ @MobileTest @loginwith11digits @Apalya
+Scenario Outline: TV56-User login with nine or eleven digits
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file
+Given user click one content
+Then user Login with eleven digits
+When user selects "Home" menu 
+
+Examples: 
+ | TestData     | TestData1            |
+ | SunNxt       | SunNxtMobileApplication|
+ 
+@MobileTest @emptypassword @Apalya
+Scenario Outline: TV57-User login with nine or eleven digits
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file
+Given user click one content
+Then user Login with empty password
+When user selects "Home" menu 
+
+
+Examples: 
+ | TestData     | TestData1            |
+ | SunNxt       | SunNxtMobileApplication|
+ 
+@MobileTest @Wrongpassword @Apalya
+Scenario Outline: TV58-User login with nine or eleven digits
+Given Read the test data "<TestData>" and "<TestData1>" from Excel file
+Given user click one content
+Then user Login with Wrong password
+When user selects "Home" menu 
+
+Examples: 
+ | TestData     | TestData1            |
+ | SunNxt       | SunNxtMobileApplication|
+ 
  
  
    

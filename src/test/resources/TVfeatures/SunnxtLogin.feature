@@ -15,7 +15,7 @@ Examples:
 Scenario Outline: TV21-User should be able to play contents from each carousal in Home Page
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Then user playback for all Home carousals
-Then user back to home
+When user selects "Home" menu 
 
 Examples: 
  | TestData     | TestData1            |
@@ -29,7 +29,7 @@ Scenario Outline: TV22-User should be able to play contents from each carousal i
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user selects "Movies" menu 
 Then user playback for all Movie carousals
-Then user back to home
+When user selects "Home" menu 
  
 Examples:  
  | TestData     | TestData1            |
@@ -40,7 +40,7 @@ Scenario Outline: TV23-User should be able to play contents from each carousal i
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user selects "TV Shows" menu 
 Then user playback for all Tvshows carousals
-Then user back to home
+When user selects "Home" menu 
 
 Examples: 
  | TestData     | TestData1            |
@@ -51,7 +51,7 @@ Scenario Outline: TV24-User should be able to play contents from each carousal i
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user selects "Music Videos" menu 
 Then user playback for all musicvideos carousals
-Then user back to home
+When user selects "Home" menu 
 
 Examples: 
  | TestData     | TestData1            |
@@ -62,7 +62,7 @@ Scenario Outline: TV25-User should be able to play contents from each carousal i
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user selects "Comedy" menu
 Then user playback for all Comedy carousals
-Then user back to home
+When user selects "Home" menu 
 
 Examples: 
  | TestData     | TestData1            |
@@ -79,8 +79,7 @@ Scenario Outline: TV26-User select In Movies page - Select View all Movies - App
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Then user Apply filter for genre in movies page
 When user click on "VIEW ALL MOVIES" under section "VIEW ALL MOVIES"
-Then user back to home
-
+When user selects "Home" menu 
 Examples: 
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication| 
@@ -90,7 +89,7 @@ Scenario Outline: TV27-User select In TV shows page - Select View all for Tv sho
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Then user Apply filter for genre in TVshows page
 When user click on "View All Shows" under section "View All"
-Then user back to home
+When user selects "Home" menu 
 
 Examples:  
  | TestData     | TestData1            |
@@ -102,7 +101,7 @@ Scenario Outline: TV28-User select In Music Videos page - Select View all for Mu
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file 
 Then user Apply filter for genre in MusicVideos page
 When user click on "VIEW ALL MUSIC VIDEOS" under section "VIEW ALL MUSIC VIDEOS"
-Then user back to home
+When user selects "Home" menu 
 
 Examples: 
  | TestData     | TestData1            |
@@ -114,7 +113,7 @@ Scenario Outline: TV29-User select In comedy page - Select view all for comedy -
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Then user Apply filter for genre in comedypage page
 When user click on "View All" under section "View All"
-Then user back to home
+When user selects "Home" menu 
 
 Examples: 
  | TestData     | TestData1            |
@@ -125,7 +124,7 @@ Scenario Outline: TV30-User select Verify Live TV section and play content from 
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file 
 When user selects "Live TV" menu 
 Then user Verify Live TV section
-Then user back to home
+When user selects "Home" menu 
 
 Examples: 
  | TestData     | TestData1            |
@@ -136,7 +135,7 @@ Examples:
 Scenario Outline: Selecting a video from TV
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user click on "Brahmachari (Telugu)" under section "SOUTH LATEST BLOCKBUSTER"
-Then user back to home
+When user selects "Home" menu 
 
 Examples:
 | TestData     | TestData1            |
@@ -146,7 +145,7 @@ Examples:
 Scenario Outline: TV35-search from different sections and play any content from search results 
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user selects Search icon button 
-Then user back to home
+When user selects "Home" menu 
 
 Examples: 
  | TestData     | TestData1            |
@@ -158,7 +157,7 @@ Scenario Outline: TV37&38-User should be able to change content language through
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user selects "Settings" menu 
 Then user change content language
-Then user back to home
+When user selects "Home" menu 
 
 Examples: 
  | TestData     | TestData1            |
@@ -169,6 +168,7 @@ Scenario Outline: TV41-User should be able to ON/OFF subtitles while playing the
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user selects "Movies" menu 
 Then user play one content
+When user selects "Home" menu 
  
  
 Examples: 
@@ -180,6 +180,7 @@ Scenario Outline: TV42-User should be able to check "MY Accounts" from settings 
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user selects "Settings" menu 
 Then user click on Myaccount 
+When user selects "Home" menu 
  
 Examples: 
  | TestData     | TestData1            |
@@ -190,7 +191,7 @@ Examples:
 Scenario Outline: TV50-User should be able to Auto play the contents
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Then user verify playback controls 
-Then user back to home
+When user selects "Home" menu 
 
 
 Examples: 
@@ -212,7 +213,7 @@ Examples:
 Scenario Outline: TV54-User should be able to change the content quality through setting option in seek bar
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Then user verify playback controls for videoqyality
-Then user back to home
+When user selects "Home" menu 
 
 
 Examples: 

@@ -361,14 +361,16 @@ public class AndroidTVStepdefs extends BizComps {
 
 	@Then("^user back to home$")
 	public void user_back_to_home() {
-		execCommand("adb shell am start -n com.suntv.sunnxt/com.androidtv.myplex.ui.activity.MainActivity");
+		//execCommand("adb shell am start -n com.suntv.sunnxt/com.androidtv.myplex.ui.activity.MainActivity");
+		
 		
 	 for (int i = 0; i < 4; i++)
 		  { 
 			  try {
-			      Back();
+			     Back();
 				  isElementDisplayed(hometabs.Settingsbtn, "Settings pagedisplayed");
 			      break;
+			     
 			      
 			  }
 			  catch (NoSuchElementException | TimeoutException e) {
@@ -377,7 +379,12 @@ public class AndroidTVStepdefs extends BizComps {
 			
 			  
 		  }
-
+		executeAndroidKeyCodes(AndroidKey.DPAD_UP);
+	/* for (int j = 0; j < 3; j++) {
+			executeAndroidKeyCodes(AndroidKey.DPAD_UP);
+			delay(2000);
+		}
+*/
 		 /* executeAndroidKeyCodes(AndroidKey.DPAD_LEFT);
 		  executeAndroidKeyCodes(AndroidKey.DPAD_DOWN); 
 		  delay(2000);
@@ -385,6 +392,62 @@ public class AndroidTVStepdefs extends BizComps {
 		
 	}
 
+	@Then("^user Login with nine digits and eleven digits$")
+	public void user_Login_with_nine_digits_and_eleven_digits()
+	{
+		
+		ExtTest.getTest().log(LogStatus.PASS, "Login with nine digits user id");
+		setValue(Login.EmailId_Txt, config.getTDValue("ninedigits"), "Entered EmailID");
+		setValue(Login.Password_Txt, config.getTDValue("Internationaluserpassword"), "Entered password");
+		delay(2000);
+		Back();
+		click(Login.loginBtn, "user click login button");
+		isElementDisplayed(hometabs.invlid, "showing invalid username&password");
+		ExtTest.getTest().log(LogStatus.PASS, "verify nine digits username ");
+	}
+	@Then("^user Login with eleven digits$")
+	public void user_Login_with_eleven_digits_and_eleven_digits()
+	{
+		
+		ExtTest.getTest().log(LogStatus.PASS, "Login with eleven digits user id");
+		setValue(Login.EmailId_Txt, config.getTDValue("elevendigits"), "Entered EmailID");
+		setValue(Login.Password_Txt, config.getTDValue("Internationaluserpassword"), "Entered password");
+		delay(2000);
+		Back();
+		click(Login.loginBtn, "user click login button");
+		isElementDisplayed(hometabs.invlid, "showing invalid username&password");
+		ExtTest.getTest().log(LogStatus.PASS, "verify eleven digits username ");
+		
+	}
+	@Then("^user Login with Wrong password$")
+	public void user_Login_with_Wrong_password()
+	{
+		
+		ExtTest.getTest().log(LogStatus.PASS, "Login with nine digits user id");
+		setValue(Login.EmailId_Txt, config.getTDValue("Mobilenumber"), "Entered EmailID");
+		setValue(Login.Password_Txt, config.getTDValue("wrongpassword"), "Entered password");
+		delay(2000);
+		Back();
+		click(Login.loginBtn, "user click login button");
+		isElementDisplayed(hometabs.wrongpassword, "showing Wrong password");
+		ExtTest.getTest().log(LogStatus.PASS, "verify Wrong password use case");
+		
+	}
+	@Then("^user Login with empty password$")
+	public void user_Login_with_empty_password()
+	{
+		
+		ExtTest.getTest().log(LogStatus.PASS, "Login with nine digits user id");
+		setValue(Login.EmailId_Txt, config.getTDValue("Mobilenumber"), "Entered EmailID");
+		setValue(Login.Password_Txt, config.getTDValue("emptypassword"), "Entered empty  password");
+		delay(2000);
+		Back();
+		click(Login.loginBtn, "user click login button");
+		isElementDisplayed(hometabs.passwordempty, "showing password empty");
+		ExtTest.getTest().log(LogStatus.PASS, "verify empty password use case");
+		
+		
+	}
 	@Then("^user playback for all Home carousals$")
 	public void user_playback_for_all_Home_carousals() {
 		ExtTest.getTest().log(LogStatus.PASS, "user playback for all Home carousals");
@@ -795,5 +858,6 @@ public class AndroidTVStepdefs extends BizComps {
 		selectMenu(menuName);
 		ExtTest.getTest().log(LogStatus.PASS, "Selected Menu:" + menuName);
 	}
+	
 
 }
