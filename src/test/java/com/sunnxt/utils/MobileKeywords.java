@@ -266,7 +266,7 @@ public class MobileKeywords extends KeywordUtil {
 	public void Back() {
 
 		getMDriver().navigate().back();
-		;
+		
 	}
 
 	public void clickUsingCoordinates(int xcordinate, int ycordinate) {

@@ -1,4 +1,4 @@
-package runners.tv;
+package runners;
 
 import java.util.Date;
 
@@ -9,27 +9,26 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.sunnxt.stepdefs.android.BizComps;
 import com.sunnxt.utils.ConfigReader;
 import com.sunnxt.utils.DriverUtil;
 import com.sunnxt.utils.ExcelDataUtil;
 import com.sunnxt.utils.ExtReport;
-import com.sunnxt.utils.ExtTest;
 import com.sunnxt.utils.GlobalParams;
 import com.sunnxt.utils.GlobalUtil;
 import com.sunnxt.utils.KeywordUtil;
 import com.sunnxt.utils.LogUtil;
 import com.sunnxt.utils.ServerManager;
 import com.sunnxt.utils.VideoRecorder;
+import com.sunnxt.utils.VideoRecorder2;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import cucumber.api.testng.TestNGCucumberRunner;
 
-@CucumberOptions(features = "classpath:TVfeatures/SunnxtLogin.feature", glue = "com.sunnxt.stepdefs.android", plugin = {
+@CucumberOptions(features = "classpath:TVfeatures/SunNxt.feature", glue = "com.sunnxt.stepdefs.android", plugin = {
 		"pretty", "html:target/cucumber-html-report", "json:target/cucumber.json",
-		"rerun:target/rerunlogin.txt" }, tags = "@Playbackcontrols")
-public class NonLoginRunnerTV extends AbstractTestNGCucumberTests {
+		"rerun:target/rerunNonlogin.txt" }, tags = "@MobileTest")
+public class TVNonLoginRunner extends AbstractTestNGCucumberTests {
 	private static final ThreadLocal<TestNGCucumberRunner> testNGCucumberRunner = new ThreadLocal<>();
 	public static ConfigReader config = new ConfigReader();
 	GlobalParams params = new GlobalParams();
@@ -79,12 +78,12 @@ public class NonLoginRunnerTV extends AbstractTestNGCucumberTests {
 			}
 			new ServerManager().startServer(Integer.parseInt(appiumPort));
 			new DriverUtil().new DriverManager().initializeDriver();
-			new VideoRecorder().startRecording();
+			new VideoRecorder2().startRecording();
 			setRunner(new TestNGCucumberRunner(this.getClass()));
-		
-			/*ExtTest.setTest(ExtReport.getReport().startTest("Launch"));
-			new BizComps().navigateToHomeScreen();*/
-		
+		   
+			//ExtTest.setTest(ExtReport.getReport().startTest("Launch"));
+			//new BizComps().launchHomePage();
+		 
 			//ExtReport.getReport().endTest(ExtTest.getTest());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -103,13 +102,13 @@ public class NonLoginRunnerTV extends AbstractTestNGCucumberTests {
 		LogUtil.infoLog(getClass(), " suite finished" + " at " + new Date());
 		LogUtil.infoLog(getClass(),
 				"\n\n+===========================================================================================================+");
-		//ExtReport.getReport().flush();
+		ExtReport.getReport().flush();
 		DriverUtil.closeAllDriver();
 	}
 
 	@AfterSuite
 	public void afterSuite() {
-		//ExtReport.getReport().close();
+		ExtReport.getReport().close();
 	}
 
 	private void init() {

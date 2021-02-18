@@ -9,10 +9,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.sunnxt.locators.android.AndroidLocators.Allow;
 import com.sunnxt.locators.android.AndroidLocators.Login;
-import com.sunnxt.locators.android.AndroidLocators.Logout;
-import com.sunnxt.stepdefs.android.BizComps;
+import com.sunnxt.stepdefs.android.tv.BizComps;
 import com.sunnxt.utils.ConfigReader;
 import com.sunnxt.utils.DriverUtil;
 import com.sunnxt.utils.ExcelDataUtil;
@@ -24,10 +22,12 @@ import com.sunnxt.utils.KeywordUtil;
 import com.sunnxt.utils.LogUtil;
 import com.sunnxt.utils.MobileKeywords;
 import com.sunnxt.utils.ServerManager;
+import com.sunnxt.utils.VideoRecorder;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import cucumber.api.testng.TestNGCucumberRunner;
+import io.appium.java_client.android.nativekey.AndroidKey;
 
 @CucumberOptions(features = "@target/rerunlogin.txt", glue = "com.sunnxt.stepdefs.android", plugin = { "pretty",
 		"html:target/cucumber-html-report", "json:target/cucumber.json" })
@@ -75,29 +75,30 @@ public class RerunLoginRunner extends AbstractTestNGCucumberTests {
 
 			new ServerManager().startServer(Integer.parseInt(appiumPort));
 			new DriverUtil().new DriverManager().initializeDriver();
+			new VideoRecorder().startRecording();
 			setRunner(new TestNGCucumberRunner(this.getClass()));
 			mk.delay(3000);
 			ExtTest.setTest(ExtReport.getReport().startTest("Launch"));
-			new BizComps().navigateToHomeScreen();
+			new BizComps().launchHomePage();
 			mk.delay(2000);
-			mk.click(Login.Profile_Btn, "user click profile image");
-			mk.click(Login.Profile2_Btn, "user click LOG IN button");
-			mk.setValue(Login.EmailId_Txt, config.getTDValue("UserID"), "Entered EmailID");
+			mk.executeAndroidKeyCodes(AndroidKey.DPAD_RIGHT);
+			mk.delay(2000);
+			mk.executeAndroidKeyCodes(AndroidKey.DPAD_CENTER);
+			mk.delay(2000);
+			mk.executeAndroidKeyCodes(AndroidKey.DPAD_CENTER);
+			mk.delay(5000);
+		    mk.setValue(Login.EmailId_Txt, config.getTDValue("UserID"), "Entered EmailID");
 			mk.setValue(Login.Password_Txt, config.getTDValue("Password"), "Entered password");
+			mk.Back();
 			mk.click(Login.loginBtn, "user click login button");
-			mk.delay(3000);
-			if (mk.isWebElementNotPresent(Logout.afterLoginProfileBtn)) {
-				new BizComps().deactivateDevicesUsingWebPortal();
-				mk.click(Login.loginBtn, "user click login button");
-			}
-			mk.click(Logout.afterLoginProfileBtn, "user click profile image");
+			mk.delay(8000);
+			mk.executeAndroidKeyCodes(AndroidKey.DPAD_CENTER);
 			mk.delay(2000);
-			mk.click(Allow.coachmark, "user click coachmark");
-			mk.delay(1000);
-			mk.click(Allow.coachmark, "user click coachmark");
-			mk.delay(1000);
-			mk.click(Allow.coachmark, "user click coachmark");
-			mk.delay(1000);
+			mk.Back();
+			mk.delay(2000);
+			mk.Back();
+			mk.delay(2000);
+			mk.Back();
 			ExtReport.getReport().endTest(ExtTest.getTest());
 		} catch (Exception e) {
 			e.printStackTrace();

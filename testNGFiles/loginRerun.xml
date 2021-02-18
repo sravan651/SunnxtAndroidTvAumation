@@ -2,12 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SunNxt Regression Suite for Login Rerun" >
 <test verbose="1" name="Cucumeber Test">
-   <parameter name="platformName" value="" />
-		<parameter name="udid" value="" />
-		<parameter name="deviceName" value="" />
+   <parameter name="platformName" value="Android" />
+		<parameter name="udid" value="192.168.26.133:5555" />
+		<parameter name="deviceName" value="192.168.26.133:5555" />
 		<parameter name="systemPort" value="8202" />
 		<parameter name="chromeDriverPort" value="8204" />
-		<parameter name="appiumPort" value=""></parameter>
+		<parameter name="appiumPort" value="5002"></parameter>
 		 <classes>
       	 <class name="runners.RerunLoginRunner"/> 
      </classes>

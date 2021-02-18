@@ -25,7 +25,7 @@ Examples:
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|  
  
-@MobileTest @SigninFunctionality
+@MobileTest @SigninFunctionality @ab
 Scenario Outline: TCN-13-verify the Email Sign In operation
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Given user login sunnxt portal by using EMAIL
@@ -36,7 +36,7 @@ Examples:
  | SunNxt       | SunNxtMobileApplication|  
 
 
-@MobileTest @invalidinputs 
+@MobileTest @invalidinputs @ab
 Scenario Outline: TCN-14-verify the Sign in with invalid inputs
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Given user login sunnxt portal by using EMAIL wrong inputs 
@@ -45,7 +45,7 @@ Examples:
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|  
 
-@MobileTest @playcontentBySignUp 
+@MobileTest @playcontentBySignUp @ab
 Scenario Outline: TCN-15-Verify Mobile number Sign up functionality 
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user click subscribe now button
@@ -61,7 +61,7 @@ Examples:
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|
 
-@MobileTest @EmailSignUp
+@MobileTest @EmailSignUp @ab
 Scenario Outline: TCN-15&23&24&25&27&31&106&108-Verify Email Sign up functionality and unsubscriber subscription and Verify coupon code
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user click login button
@@ -76,7 +76,7 @@ Then user Logout from device
 Examples:
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|
-@MobileTest  @SigUpByvalidations @sravan @one
+@MobileTest  @SigUpByvalidations @sravan @one @ab
 Scenario Outline: REG-16-check sigup by enter nine digit mobile number operation
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user sigup by entering nine digit phone number
@@ -85,7 +85,7 @@ Examples:
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|
  
-@MobileTest @forgotPasswordEmailID 
+@MobileTest @forgotPasswordEmailID @ab
 Scenario Outline: TCN-17-Check forget password for valid Email Signed In users operation
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 When user Enter valid Email ID in text field
@@ -94,7 +94,7 @@ Examples:
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|
  
-@MobileTest @forgotPasswordMobileNumber @one
+@MobileTest @forgotPasswordMobileNumber @one @ab
 Scenario Outline: TCN-18 Check forget password for valid mobile Number users operation
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Given user Enter valid mobile number in text field
@@ -103,7 +103,7 @@ Examples:
  | TestData     | TestData1            |
  | SunNxt       | SunNxtMobileApplication|
  
-@MobileTest @playfreeandpremium 
+@MobileTest @playfreeandpremium @ab
 Scenario Outline: TCN-22-Verify by sign in with unsubscribed user
 Given Read the test data "<TestData>" and "<TestData1>" from Excel file
 Given user login by unsubscription credentials

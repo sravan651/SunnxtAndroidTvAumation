@@ -4,8 +4,8 @@
 <!-- All tests will show in Report -->
 	<test verbose="1" name="Cucumeber Test">
 		<parameter name="platformName" value="Android" />
-		<parameter name="udid" value="192.168.26.130:5555" />
-		<parameter name="deviceName" value="192.168.26.130:5555" />
+		<parameter name="udid" value="192.168.26.133:5555" />
+		<parameter name="deviceName" value="192.168.26.133:5555" />
 		<parameter name="systemPort" value="8202" />
 		<parameter name="chromeDriverPort" value="8204" />
 		<parameter name="appiumPort" value="5002"></parameter>

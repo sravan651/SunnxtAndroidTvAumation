@@ -75,8 +75,7 @@ public class KeywordUtil extends DriverUtil {
 		String htmlReportFile = System.getProperty("user.dir") + "\\" + config.getValue("HtmlReportFullPath");
 		System.out.println("cucumber path is" + htmlReportFile);
 		File f = new File(htmlReportFile);
-		if (f.exists()) {
-
+/*		if (f.exists()) {
 			try {
 				Runtime.getRuntime().exec(
 						"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe \"" + htmlReportFile + "\"");
@@ -84,11 +83,11 @@ public class KeywordUtil extends DriverUtil {
 				e.printStackTrace();
 			}
 		}
-
+*/
 		// if (cucumberTagName.equals("Mobile") || cucumberTagName.equals("Web")) {
 		String htmlExtentReportFile = System.getProperty("user.dir") + "\\" + config.getValue("extentReportPath");
 		File extentReport = new File(htmlExtentReportFile);
-		if (extentReport.exists()) {
+		/*if (extentReport.exists()) {
 
 			try {
 				Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe \""
@@ -98,7 +97,7 @@ public class KeywordUtil extends DriverUtil {
 				e.printStackTrace();
 			}
 		}
-	}
+*/	}
 
 	public static byte[] takeScreenshot(String screenshotFilePath) {
 		try {

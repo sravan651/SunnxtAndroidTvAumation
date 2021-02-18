@@ -4152,7 +4152,11 @@ public class AndroidStepdefs extends BizComps {
 		System.out.println(subscription);
 
 	}
-
+	@Then("^user should be able to do switch profile$")
+	public void user_should_be_able_to_do_switch_profile()
+	{
+		
+	}
 	@Then("^user change app and content language in hamburger menu and observe app should show date as per selection$")
 	public void user_change_app_and_content_language_in_hamburger_menu_and_observe_app_should_show_date_as_per_selection() {
 		click(Wifi.hamburger_icon, "user click hamburger Icon");
